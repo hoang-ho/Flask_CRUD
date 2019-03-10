@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>{{restaurant.name}}</h1>
+    
+
+    <p><a href="{{url_for('newMenuItem', restaurant_id=restaurant.id)}}">Create New Item</a></p>
+    {% for item in items %}
+    <div>
+        <p>{{item.name}}</p>
+        <p>{{item.description}}</p>
+        <p>{{item.price}}</p>
+        <p><a href="{{ url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}">Edit</a>
+        <a href="{{ url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}">Delete</a></p>
+        <hr>
+    </div>
+    {% endfor %}
+    <footer class="footer">
+        <div class="container">
+            <a href="{{ url_for('restaurants') }}"><p class="text-muted">Return to Restaurants</p></a>
+        </div>
+    </footer>
+{% endblock content %}

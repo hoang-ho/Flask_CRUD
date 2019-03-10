@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>New Menu Item</h1>
+        <form action= "{{ url_for('newMenuItem', restaurant_id=restaurant_id) }}" method="POST">    
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-1 col-form-label">Name</label>
+                <div class="col-md-4">
+                    <input class="form-control" name="name" placeholder="New Item Name" aria-label="Search">
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-sm-1 col-form-label">Course</label>
+                <div class = "col-md-3">
+                    <select class="custom-select mr-sm-2" name="course">
+                        <option>"Entree"</option>
+                        <option>"Appetizer"</option>
+                        <option>"Dessert"</option>
+                        <option>"Beverage"</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-1 col-form-label">Price</label>
+                <div class="col-md-3">
+                    <input class="form-control" name="price" aria-label="Search">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="exampleFormControlTextarea1" class="col-sm-1 col-form-label">Description</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea> 
+                </div>
+            </div>
+                    
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create</button>
+        </form>
+{% endblock content %}

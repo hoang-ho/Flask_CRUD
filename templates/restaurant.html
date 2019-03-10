@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Yummy!</h1>
+
+
+    <p><a href="{{url_for('newRestaurant')}}">Create a new Restaurant</a></p>
+    
+    <div>
+        {% for restaurant in restaurants %}
+
+        <p>
+            <a href="{{ url_for('restaurantMenu', restaurant_id=restaurant.id) }}"> {{ restaurant.name }} </a>
+        </p>
+
+        <p>
+            <a href="{{ url_for('editRestaurant', restaurant_id=restaurant.id) }}"> Edit Restaurant </a>
+        </p>
+
+        <p>
+            <a href="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id) }}"> Delete Restaurant </a>
+        </p>
+        
+        <hr>
+        
+        {% endfor %}
+    </div>
+
+
+
+
+{% endblock content %}
